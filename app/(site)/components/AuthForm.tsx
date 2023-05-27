@@ -5,6 +5,8 @@ import Input from "@/app/components/inputs/input";
 import { useCallback, useState } from "react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import AuthSocialButton from "./AuthSocialButton";
+import axios from "axios";
+
 type Inputs = {
   name: string;
   email: string;
@@ -39,7 +41,7 @@ function AuthForm() {
       console.log(data, "LOGIN");
     }
     if (variant === "REGISTER") {
-      console.log(data, "REGISTER");
+      axios.post("/api/register", data);
     }
   };
 
